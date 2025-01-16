@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        generatePNR();
+      };
+    
+      function generatePNR() {
+        // Length of the PNR
+        var length = 6;
+    
+        // Possible characters in the PNR
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    
+        var pnr = '';
+        for (var i = 0; i < length; i++) {
+          var randomIndex = Math.floor(Math.random() * characters.length);
+          pnr += characters[randomIndex];
+        }
+    
+        document.getElementById('pnr').innerText = pnr;
+      }
+    </script>
+    <style>
+      
+      table {
+        color: white;
+        background-image: linear-gradient(rgb(1, 16, 61),rgb(18, 128, 247));
+        height: 435px;
+        width: 500px;
+        text-align: center;
+        font-size: larger;
+        border-radius: 50px;
+        border-collapse: collapse;
+      }
+      #msg {
+        color: brown;
+        font-size: 40px;
+      }
+      h3 {
+        color: rgb(44, 63, 4);
+        text-decoration: underline;
+        font-size: 30px;
+      }
+      body{
+        background-image: linear-gradient(to bottom right,#4CAF50, white);
+      }
+      .circle-container {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgb(255, 190, 27);
+  position: relative;
+  background-color: rgb(255, 190, 27);
+}
+
+.tick {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  color: white;
+}
+
+.circle.complete .tick {
+  display: block;
+}
+
+    </style>
+  </head>
+    <center>
+      <div class="circle-container">
+        <div class="circle">
+          <div class="tick">&#10004;</div>
+        </div>
+      </div>
+      
+      <h2 id="msg">Congratulations! Your ticket is booked successfully.</h2>
+      <h3>Find your ticket below:</h3>
+      <table>
+        <tr>
+          <th>NAME</th>
+          <td>{{name}}</td>
+        </tr>
+        <tr>
+          <th>FLIGHT NAME</th>
+          <td>{{flight}}</td>
+        </tr>
+        <tr>
+          <tr>
+            <th>PNR</th>
+            <td id="pnr"></td>
+          </tr>
+          <th>FROM</th>
+          <td>{{from_from}}</td>
+        </tr>
+        <tr>
+          <th>TO</th>
+          <td>{{to_to}}</td>
+        </tr>
+        <tr>
+          <th>TIME</th>
+          <td>
+            {% if flight == "AIR ASIA" %}
+            17:20
+            {% elif flight == "INDIGO" %}
+            19:30
+            {% else %}
+            22:05
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <th>CLASS</th>
+          <td>{{flight_class}}</td>
+        </tr>
+        <tr>
+          <th>NUMBER OF TRAVELLERS</th>
+          <td>{{count}}</td>
+        </tr>
+        <tr>
+          <th>TOTAL FARE</th>
+          <td>{{ticket_price}}</td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>

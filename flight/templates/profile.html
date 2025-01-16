@@ -1,0 +1,50 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      form {
+        font-size: 25px;
+        color: rgb(185, 245, 5);
+        font-weight: 600;
+        margin-top: 20px;
+      }
+      h1 {
+        margin-left: 80px;
+        text-decoration: underline;
+        margin-bottom: -10px;
+      }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/style1.css'%}" />
+  </head>
+  <body
+    style="
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('{% static 'img/pic1.jpeg'%}');
+    "
+  >
+    <h1 style="color: rgb(234, 5, 123)">Enter details to complete profile</h1>
+    <div class="booking-form">
+      <form method="post" action="{% url 'user:profile_save' %}">
+        {% csrf_token %} Father's name:
+        <input type="text" name="fathers_name" /><br />
+        Mother's name: <input type="text" name="mothers_name" /><br />
+        Email: <input type="text" name="email" /><br />
+        Phone: <input type="text" name="phone" /><br />
+        address: <input type="text" name="address" />
+        <div>
+          <input style="font-weight: bold" type="submit" value="UPDATE" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

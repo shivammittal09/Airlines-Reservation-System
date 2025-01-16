@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking histories</title>
+    <style>
+      body {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("{% static "img/w3.jpg"%}");
+      }
+      table {
+        /* background-image: linear-gradient(rgb(2, 73, 41), rgb(3, 169, 103)); */
+        background-image: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.8)
+        );
+        height: 280px;
+        width: 390px;
+        text-align: center;
+        font-size: larger;
+        border-radius: 75px;
+        border-collapse: collapse;
+        color: aliceblue;
+      }
+      p {
+        color: darkmagenta;
+        font-size: xx-large;
+        font-weight: bolder;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <p>YOUR BOOKING HISTORY</p>
+      <br /><br />
+      {% for ele in history %}
+      <table>
+        <tr>
+          <th>NAME</th>
+          <td>{{ele.name}}</td>
+        </tr>
+        <tr>
+          <th>FLIGHT ID</th>
+          <td>{{ele.fid}}</td>
+        </tr>
+        <tr>
+          <th>DEPARTURE</th>
+          <td>{{ele.departure}}</td>
+        </tr>
+        <tr>
+          <th>ARRIVAL</th>
+          <td>{{ele.arrival}}</td>
+        </tr>
+        <tr>
+          <th>NUMBER OF TRAVELLERS</th>
+          <td>{{ele.num_of_travellers}}</td>
+        </tr>
+        <tr>
+          <th>TOTAL FARE</th>
+          <td>{{ele.final_fare}}</td>
+        </tr>
+      </table>
+      <br />
+      {% endfor %}
+    </center>
+  </body>
+</html>

@@ -1,0 +1,159 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Homepage</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css'%}" />
+    <style>
+      /* Define keyframes for animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInFromTop {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      /* Apply animations to specific elements */
+      .col1,
+      .col2 {
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+      .card {
+        animation: slideInFromTop 1s ease-in-out forwards;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      /* Add hover effect for cards */
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      /* Apply animation to navbar */
+      .navbar {
+        animation: slideInFromTop 1s ease-in-out forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url('{% static 'img/img2.jpg'%}');
+      "
+    >
+      <div class="navbar">
+        <img src="{% static 'img/logo2.png' %}" class="logo l2" />
+        <h2 class="logo l1">HawaiYatra</h2>
+        <nav>
+          <ul>
+            <li><a href="{% url 'user:view_profile' %}">PROFILE</a></li>
+            <li><a href="{% url 'user:profile' %}">UPDATE PROFILE</a></li>
+            <li><a href="{% url 'user:history' %}">HISTORY</a></li>
+            <li><a href="{% url 'user:logout' %}">LOGOUT</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="row">
+        <div class="col1">
+          <p id="p1">Welcome,</p>
+          {% for data in user_data %}
+          <h1>{{data.name | upper}}</h1>
+          {% endfor %}
+          <p>
+            Explore our vast selection of flights to top destinations
+            nationwide. From booking to boarding, we've got you covered.
+            Discover seamless travel experiences with our user-friendly
+            platform.<br />Your journey begins here!
+          </p>
+          <div id="div1">
+            <a href="{% url 'user:booking' %}">Book Flight</a>
+          </div>
+        </div>
+        <div class="col2">
+          <div
+            class="card card1"
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.3),
+                  rgba(0, 0, 0, 0.3)
+                ),
+                url('{% static 'img/delhi.jpg'%}');
+            "
+          >
+            <h3>Delhi</h3>
+            <p>
+              The Capital of India is home to a plethora of historical
+              monuments. Have a visit to Delhi.
+            </p>
+          </div>
+          <div
+            class="card card2"
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.3),
+                  rgba(0, 0, 0, 0.3)
+                ),
+                url('{% static 'img/bngl.jpg'%}');
+            "
+          >
+            <h3>Bengaluru</h3>
+            <p>
+              The "Silicon Valley of India", offers a unique blend of tradition
+              and modernity.
+            </p>
+          </div>
+          <div
+            class="card card3"
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.3),
+                  rgba(0, 0, 0, 0.3)
+                ),
+                url('{% static 'img/mumbai.jpg'%}');
+            "
+          >
+            <h3 id="a1">Mumbai</h3>
+            <p>
+              The "City of Dreams", You will love it's culture,history and
+              modernity.
+            </p>
+          </div>
+          <div
+            class="card card4"
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.3),
+                  rgba(0, 0, 0, 0.3)
+                ),
+                url('{% static 'img/kolkata.jpg'%}');
+            "
+          >
+            <h3 id="a2">Kolkata</h3>
+            <p>
+              The Cultural Capital of India makes you explore vast culture of
+              India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

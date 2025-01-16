@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+  </head>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.1) 50%
+      );
+      margin: 0;
+      padding: 0;
+    }
+
+    #d1 {
+      height: 30%; /*padding: 1em;text-align: center;display: flex;*/
+      display: flex;
+      align-items: center;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.6) 50%,
+        rgba(0, 0, 0, 0.6) 50%
+      );
+      color: #fff;
+    }
+    .logo {
+      width: 50px;
+      cursor: pointer;
+      padding-left: 10px;
+    }
+    .l1 {
+      color: rgb(243, 192, 133);
+      font-size: 35px;
+      font-family: cursive;
+    }
+    .l2 {
+      padding-left: 5%;
+    }
+
+    main {
+      display: flex;
+      padding: 20px;
+    }
+    .img {
+      position: relative;
+      width: 40%;
+      top: 60px;
+      left: 8%;
+    }
+
+    .about-section {
+      top: 30px;
+      position: relative;
+      width: 40%;
+      margin: 0 auto;
+      font-size: large;
+      text-align: justify;
+    }
+    h1 {
+      font-size: 50px;
+    }
+
+    footer {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.5) 50%
+      );
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+  <body>
+    <div id="d1">
+      <img src="{% static 'img/logo2.png' %}" class="logo l2" />
+      <h2 class="logo l1">HawaiYatra</h2>
+    </div>
+
+    <main>
+      <section class="img">
+        <img src="{% static 'img/plane2.png' %}" />
+      </section>
+      <section class="about-section">
+        <h1>About Us</h1>
+        <p>
+          Welcome to HawaiYatra, your go-to platform for hassle-free flight
+          reservations. We aim to provide you with a seamless and enjoyable
+          booking experience for your air travel needs.
+        </p>
+        <p>
+          Our team is dedicated to offering a wide range of flight options,
+          competitive prices, and excellent customer service. Whether you're a
+          frequent traveler or planning a vacation, we've got you covered.
+        </p>
+        <p>
+          Feel free to explore our website and book your next adventure with
+          HawaiYatra!
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Airplane Booking. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(160, 247, 249);
+      }
+      table {
+        background-image: linear-gradient(rgb(66, 1, 1), rgb(197, 43, 84));
+        height: 420px;
+        width: 500px;
+        text-align: center;
+        font-size: larger;
+        border-radius: 50px;
+        border-collapse: collapse;
+        color: aliceblue;
+        margin-top: 40px;
+      }
+      h1 {
+        color: rgb(143, 79, 2);
+        font-weight: bolder;
+        margin-top: 120px;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>USER PROFILE</h1>
+      <table>
+        <tr>
+          <th>NAME</th>
+          {% for ele in profile %}
+          <td>{{ele.name}}</td>
+          {% endfor %}
+        </tr>
+        {% for e in upd_profile %}
+        <tr>
+          <th>FATHER'S NAME</th>
+          <td>{{e.fathers_name}}</td>
+        </tr>
+        <tr>
+          <th>MOTHER'S NAME</th>
+          <td>{{e.mothers_name}}</td>
+        </tr>
+        <tr>
+          <th>EMAIL</th>
+          <td>{{e.email}}</td>
+        </tr>
+        <tr>
+          <th>PHONE NUMBER</th>
+          <td>{{e.phone}}</td>
+        </tr>
+        <tr>
+          <th>ADDRESS</th>
+          <td>{{e.address}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </center>
+  </body>
+</html>

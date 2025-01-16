@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Available Flights</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #09a8ad;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(white, #00dce3, white);
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+      }
+
+      h1 {
+        margin-left: 480px;
+        color: #18067e;
+        text-shadow: 0 0 10px #ccc;
+        font-weight: 680;
+        text-decoration: underline 2px #022b07;
+      }
+
+      .flight-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .flight1 {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 20px;
+        width: 550px;
+        box-shadow: 0 0 10px #ccc;
+        font-size: 20px;
+        border: 3px solid white;
+        background-image: linear-gradient(to top left, rgb(84, 242, 129),rgb(243, 243, 5));
+      }
+
+      .flight1 h2 {
+        color: #c10303;
+        border: 2px solid gainsboro;
+        background-color: whitesmoke;
+        width: 145px;
+        height: 35px;
+        border-radius: 20px;
+        text-align: center;
+      }
+
+      .flight1 p {
+        font-size: 16px;
+        line-height: 1.5;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #047fd7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 18px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #0256b8;
+      }
+      .container1 {
+        background-image: linear-gradient(green, white, green);
+        position: relative;
+        background-color: burlywood;
+        margin-top: 150px;
+        height: 130px;
+        width: 370px;
+        border: 3px solid white;
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 20px;
+        box-shadow: 0 0 10px #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <h1 id="1">AVAILABLE FLIGHTS FOR BOOKING</h1>
+    <div class="container">
+      <div class="flight-list">
+        {% for ele in flight %}
+        <div class="flight1">
+          <h2>{{ele.flight}}</h2>
+          <p>Date: {{ele.date}}</p>
+          {% if ele.flight == "AIR ASIA" %}
+          <p>Time: 17:20</p>
+          {% elif ele.flight == "INDIGO" %}
+          <p>Time: 19:30</p>
+          {% else %}
+          <p>Time: 22:05</p>
+          {% endif %}
+          <p>From: {{from_from}} &nbsp; To: {{to_to}}</p>
+          <p>Price: {{F}}</p>
+          <form action="{% url 'user:result2' %}" method="post">
+            {% csrf_token %}
+            <button
+              
+              type="submit"
+              value="{{ele.flight}}"
+              name="flight"
+            >
+              BOOK NOW
+            </button>
+          </form>
+        </div>
+        {% endfor %}
+      </div>
+              <!-- <div class="container1">
+        <h3 style="color: #8c1515; font-size: 22px">
+          SELECT THE FLIGHT <br />
+          YOU WANT TO BOOK
+        </h3>
+        <form action="{% url 'user:result2' %}" method="post">
+          {% csrf_token %}
+          <select name="flight">
+            {% for ele in flight %}
+            <option value="{{ele.flight}}">{{ele.flight}}</option>
+            {% endfor %}
+          </select>
+          <input
+            style="color: red; background-color: beige"
+            type="submit"
+            value="BOOK NOW"
+          />
+        </form> -->
+      </div>
+    </div>
+  </body>
+</html>
