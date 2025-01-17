@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+from django.shortcuts import redirect
+
 urlpatterns = [
     path('', lambda request: redirect('flight/welcome', permanent=True)),
     path("flight/",include("flight.urls")),
